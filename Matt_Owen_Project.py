@@ -27,3 +27,19 @@ def get_difficulty():
         return 10
     else:
         return 5
+
+def get_valid_guess():
+    # Initial conditions.
+    valid = False
+    guess = None
+    # Checks if guess is an integer between 1-100, if not it lets you try again. Returns your guess.
+    while not valid:
+        try:
+            guess = int(input("Your Guess (1-100): ").strip())
+            if 1 <= guess <= 100:
+                valid = True
+            else:
+                print("Please Enter a Number Between 1-100.")
+        except ValueError:
+            print("Invalid Input. Select an Integer 1-100")
+    return guess
